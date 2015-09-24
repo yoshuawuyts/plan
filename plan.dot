@@ -1,13 +1,57 @@
+// colors
+//   gray = not implemented
+//   orange = experimental
+//   green = stable
+//   blue = locked
+
 digraph planning {
   // routing, which leads to solid
   // portable ways of getting data around
   // wayfarer-to-server
+  hashMatch [style="filled" fontcolor="white" color="blue"]
+  methodist [style="filled" fontcolor="white" color="green"]
+  wayfarer [style="filled" fontcolor="white" color="green"]
+  wayfarerToFs [style="filled" fontcolor="white" color="orange"]
+  wayfarerToServer [style="filled" fontcolor="white" color="orange"]
+  wayfarerServer [style="filled" fontcolor="white" color="gray"]
   {wayfarer methodist} -> wayfarerToServer
   {wayfarer hashMatch wayfarerToServer} -> wayfarerServer
-  {wayfarerServer} -> wayfarerToFs
+  {wayfarerServer wayfarerToServer} -> wayfarerToFs
 
   // http-framework
   // modular components to build http servers
   httpResponseStream -> httpNdjson
   httpNdjson -> boleStream
+  bodyParserStream -> streamingLogic
+  serverError -> composableServers
+  wayfarerServer -> composableServers
+  preConfiguredAccountDown -> composableServers
+  boleStream -> streamingLogic -> composableServers
+
+  // test
+  gherkinStream [style="filled" fontcolor="white" color="green"]
+  cukeTap [style="filled" fontcolor="white" color="gray"]
+  gherkinDotMashup [style="filled" fontcolor="white" color="gray"]
+  gherkinStream -> cukeTap
+
+  // virtual-dom
+  stateAtom -> stateChannel
+  virtualHook -> virtualValidation
+  virtualValidation -> virtualForm
+
+  // abstract
+
+  portableBuildProcess [shape="box"]
+  composableApplications [shape="box"]
+  composableServers [shape="box"]
+  composableForms [shape="box"]
+  composableClients [shape="box"]
+  streamingLogic [shape="box"]
+  testableThoughts [shape="box"]
+
+  {gherkinDotMashup cukeTap} -> testableThoughts
+  virtualForm -> composableForms -> composableClients
+  stateChannel -> composableClients
+  wayfarerToFs -> portableBuildProcess
+  {composableClients composableServers} -> composableApplications
 }
