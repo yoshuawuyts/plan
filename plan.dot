@@ -1,0 +1,5 @@
+// test graph, 1.nil
+digraph test {
+  a -> b -> c;
+  a -> {x y}
+}
