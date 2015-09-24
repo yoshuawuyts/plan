@@ -29,10 +29,22 @@ the industry as a whole forever strand on using the new era of XML, Python and
 non-unix.
 
 ## Goals
-- Create stand-alone components that work well together
-- Implement patterns to deal with problems that are traditionally solved by
-  frameworks (e.g. code generation, management tooling)
-- Create streams
+
+- Components should be usable stand-alone, but work exceptionally well
+  together.
+
+All packages listed serve 2 main goals:
+- stop repetition
+- speed up development without using frameworks
+
+### portable build process
+### streaming logic
+### composable servers
+### composable forms
+### composable clients
+### composable applications
+### portable state
+### testable thoughts
 
 ## Non-goals
 - The goal isn't to create a framework

@@ -18,40 +18,71 @@ digraph planning {
   {wayfarer hashMatch wayfarerToServer} -> wayfarerServer
   {wayfarerServer wayfarerToServer} -> wayfarerToFs
 
-  // http-framework
+  // composable servers
   // modular components to build http servers
+  bodyParserStream [style="filled" fontcolor="white" color="gray"]
+  levelWriteStream [style="filled" fontcolor="white" color="gray"]
+  boleStream [style="filled" fontcolor="white" color="green"]
+  httpNdjson [style="filled" fontcolor="white" color="green"]
+  httpResponseStream [style="filled" fontcolor="white" color="gray"]
+  serverError [style="filled" fontcolor="white" color="gray"]
+  preConfiguredAccountDown [style="filled" fontcolor="white" color="gray"]
+  headerStream [style="filled" fontcolor="white" color="gray"] // modified headers, etags
   httpResponseStream -> httpNdjson
   httpNdjson -> boleStream
-  bodyParserStream -> streamingLogic
+  {bodyParserStream levelWriteStream headerStream} -> streamingLogic
   serverError -> composableServers
   wayfarerServer -> composableServers
+  {wayfarerServer serverError} -> preConfiguredAccountDown
   preConfiguredAccountDown -> composableServers
   boleStream -> streamingLogic -> composableServers
 
-  // test
+  // testable thoughts
   gherkinStream [style="filled" fontcolor="white" color="green"]
   cukeTap [style="filled" fontcolor="white" color="gray"]
   gherkinDotMashup [style="filled" fontcolor="white" color="gray"]
   gherkinStream -> cukeTap
+  cukeTap -> gherkinDotMashup
 
-  // virtual-dom
+  // instant projects
+  autoNpmInstall [style="filled" fontcolor="white" color="gray"]
+  polyrepoUpdate [style="filled" fontcolor="white" color="orange"]
+  autoNpmInstall -> instantProjects
+  polyrepoUpdate -> polyrepo
+
+  // composable clients
+  stateAtom [style="filled" fontcolor="white" color="green"]
+  stateChannel [style="filled" fontcolor="white" color="gray"]
+  virtualHook [style="filled" fontcolor="white" color="orange"]
+  virtualValidation [style="filled" fontcolor="white" color="gray"]
+  virtualForm [style="filled" fontcolor="white" color="orange"]
+  jsonSchemaForm [style="filled" fontcolor="white" color="gray"]
+  sheetify [style="filled" fontcolor="white" color="orange"]
+  sheetifyNext [style="filled" fontcolor="white" color="gray"]
+  inlineVirtualHtml [style="filled" fontcolor="white" color="gray"]
+  sheetify -> sheetifyNext
+  {sheetify sheetifyNext} -> composableClients
   stateAtom -> stateChannel
   virtualHook -> virtualValidation
-  virtualValidation -> virtualForm
+  virtualValidation -> composableForms
+  inlineVirtualHtml -> composableClients
+  {jsonSchemaForm virtualForm} -> composableForms
+  {stateAtom stateChannel} -> portableState
 
   // abstract
-
-  portableBuildProcess [shape="box"]
   composableApplications [shape="box"]
-  composableServers [shape="box"]
-  composableForms [shape="box"]
   composableClients [shape="box"]
+  composableForms [shape="box"]
+  composableServers [shape="box"]
+  instantProjects [shape="box"]
+  polyrepo [shape="box"]
+  portableBuildProcess [shape="box"]
+  portableState [shape="box"]
   streamingLogic [shape="box"]
   testableThoughts [shape="box"]
-
-  {gherkinDotMashup cukeTap} -> testableThoughts
-  virtualForm -> composableForms -> composableClients
-  stateChannel -> composableClients
+  {gherkinDotMashup} -> testableThoughts
+  {composableForms portableState} -> composableClients
   wayfarerToFs -> portableBuildProcess
+  {portableBuildProcess polyrepo} -> instantProjects
   {composableClients composableServers} -> composableApplications
 }
