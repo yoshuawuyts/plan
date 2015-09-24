@@ -1,5 +1,13 @@
-// test graph, 1.nil
-digraph test {
-  a -> b -> c;
-  a -> {x y}
+digraph planning {
+  // routing, which leads to solid
+  // portable ways of getting data around
+  // wayfarer-to-server
+  {wayfarer methodist} -> wayfarerToServer
+  {wayfarer hashMatch wayfarerToServer} -> wayfarerServer
+  {wayfarerServer} -> wayfarerToFs
+
+  // http-framework
+  // modular components to build http servers
+  httpResponseStream -> httpNdjson
+  httpNdjson -> boleStream
 }

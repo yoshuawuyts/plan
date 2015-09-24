@@ -1,2 +1,2 @@
 #!/bin/sh
-dot -Tsvg plan.dot > plan.svg
+time -p dot -Tsvg plan.dot > plan.svg
