@@ -6,7 +6,7 @@ attempt to create an overview of the projects I've been working on, highlight
 the goals behind them and formulate the relationships between them.
 
 ## Preview
-![plan in svg](plan.svg)
+![plan in svg](https://rawgit.com/yoshuawuyts/plan/master/plan.svg)
 
 ## Install
 ```sh
