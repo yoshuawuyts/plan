@@ -14,7 +14,7 @@ $ git clone https://github.com/yoshuawuyts/plan
 ```
 
 ## Usage
-Uses [graphviz]() to create project dependency graphs.
+Uses [graphviz](http://www.graphviz.org/) to create project dependency graphs.
 ```sh
 $ bundle.sh
 ```
