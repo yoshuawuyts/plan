@@ -47,7 +47,16 @@ digraph planning {
   // instant projects
   autoNpmInstall [style="filled" fontcolor="white" color="gray"]
   polyrepoUpdate [style="filled" fontcolor="white" color="orange"]
-  autoNpmInstall -> instantProjects
+  initialize [style="filled" fontcolor="white" color="green"]
+  initializeEngine [style="filled" fontcolor="white" color="orange"]
+  initializeCli [style="filled" fontcolor="white" color="orange"]
+  initializeProject [style="filled" fontcolor="white" color="gray"]
+  initializeTest [style="filled" fontcolor="white" color="gray"]
+  initializeEngine -> initializeCli
+  initializeTest -> initializeCli
+  initializeEngine -> initializeProject
+  {initializeEngine initializeCli initializeProject} -> initialize
+  {initialize autoNpmInstall} -> instantProjects
   polyrepoUpdate -> polyrepo
 
   // composable clients
