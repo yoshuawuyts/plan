@@ -39,7 +39,7 @@ digraph planning {
 
   // testable thoughts
   gherkinStream [style="filled" fontcolor="white" color="green"]
-  cukeTap [style="filled" fontcolor="white" color="gray"]
+  cukeTap [style="filled" fontcolor="white" color="orange"]
   gherkinDotMashup [style="filled" fontcolor="white" color="gray"]
   gherkinStream -> cukeTap
   cukeTap -> gherkinDotMashup
