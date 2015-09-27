@@ -86,7 +86,6 @@ digraph planning {
   portableBuildProcess [shape="box"]
   portableState [shape="box"]
   streamingLogic [shape="box"]
-  testableThoughts [shape="box"]
   {composableForms portableState} -> composableClients
   wayfarerToFs -> portableBuildProcess
   {portableBuildProcess polyrepo} -> instantProjects
