@@ -87,7 +87,6 @@ digraph planning {
   portableState [shape="box"]
   streamingLogic [shape="box"]
   testableThoughts [shape="box"]
-  {gherkinDotMashup} -> testableThoughts
   {composableForms portableState} -> composableClients
   wayfarerToFs -> portableBuildProcess
   {portableBuildProcess polyrepo} -> instantProjects
