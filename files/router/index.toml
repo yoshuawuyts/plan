@@ -3,11 +3,11 @@ refs = []
 links = []
 
 [[package]]
-name = "wayfarer"
-repo = "https://github.com/yoshuawuyts/wayfarer"
-links = [ "./router.feature" ]
+  name = "wayfarer"
+  repo = "https://github.com/yoshuawuyts/wayfarer"
+  links = [ "./router.feature" ]
 
 [[package]]
-name = "wayfarer-to-server"
-repo = "https://github.com/yoshuawuyts/wayfarer-to-server"
-links = [ "./router-to-filesystem.feature" ]
+  name = "wayfarer-to-server"
+  repo = "https://github.com/yoshuawuyts/wayfarer-to-server"
+  links = [ "./router-to-filesystem.feature" ]
